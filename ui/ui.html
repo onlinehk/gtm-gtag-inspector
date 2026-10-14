@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>GTM &amp; gtag Inspector</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="../icons/icon32.png" alt="" width="20" height="20">
+      <div class="brand-text">
+        <strong>GTM &amp; gtag Inspector</strong>
+        <div id="url" class="muted ellipsis"></div>
+      </div>
+    </div>
+    <div class="actions">
+      <label class="check" title="Keep events across page navigations"><input type="checkbox" id="preserve"> Preserve log</label>
+      <button id="export" title="Download all captured data as JSON">Export</button>
+      <button id="clear" title="Clear the event log for this tab">Clear</button>
+    </div>
+  </header>
+
+  <nav id="tabs">
+    <button data-view="overview" class="active">Overview</button>
+    <button data-view="hits">Hits <span class="count" id="c-hits"></span></button>
+    <button data-view="datalayer">dataLayer <span class="count" id="c-dl"></span></button>
+    <button data-view="timeline">Timeline <span class="count" id="c-all"></span></button>
+    <div class="spacer"></div>
+    <input id="filter" type="search" placeholder="Filter (event, ID, param…)" spellcheck="false">
+  </nav>
+
+  <main id="main"></main>
+
+  <script src="labels.js"></script>
+  <script src="ui.js"></script>
+</body>
+</html>

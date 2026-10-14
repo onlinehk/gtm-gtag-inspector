@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "GTM & gtag Inspector",
+  "version": "1.0.0",
+  "description": "Inspect Google Tag Manager containers, gtag.js, dataLayer pushes and GA4 / Google Ads / Floodlight hits. Works in Arc, Chrome, Edge and Brave.",
+  "permissions": ["webRequest", "webNavigation", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "GTM & gtag Inspector",
+    "default_popup": "ui/ui.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "devtools_page": "devtools/devtools.html",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/inject.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
